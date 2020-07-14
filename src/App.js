@@ -13,13 +13,18 @@ import dummydata from "./dummy-data"
 
 const App = () => {
 const [data] = useState(dummydata)
+const [isSearch, setSearch] = useState('')
+
+const handleChange = searchValue => {
+  setSearch(searchValue)
+}
 console.log(data)
   return (
     <div className="App">
       
       {/* Add imported components here to render them */}
-      <SearchBar />
-      <PostPage postData = {data} />
+      <SearchBar handleChange={handleChange}/>
+      <PostPage postData = {data} searchValue={isSearch}/>
     </div>
   );
 };
